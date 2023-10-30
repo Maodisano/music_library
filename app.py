@@ -1,6 +1,6 @@
 from lib.database_connection import DatabaseConnection
 from lib.artist_repository import ArtistRepository
-
+from lib.album_repository import AlbumRepository
 
 # Connect to the database
 connection = DatabaseConnection()
@@ -16,3 +16,16 @@ artists = artist_repository.all()
 # List them out
 for artist in artists:
     print(artist)
+
+# retrieve all albums
+
+album_repository = AlbumRepository(connection)
+albums = album_repository.all()
+
+# List albums 
+for album in albums:
+    print(album)
+
+# print album with specified id
+
+print(album_repository.find(1))
